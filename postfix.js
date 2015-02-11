@@ -42,6 +42,33 @@
 	}
 	//fifth if the incoming symbol has a higher precedence than the
 	//top of the stack push it on the stack
-
+	else if (precOf(equation[i]) < precOf(stack.peek())) {
+		stack.push(equation[i]);
+	}
+	//sixth if the incoming symbol has an eqaual precedence with 
+	//the top of the stack, use association. If the assiciation is 
+	//left to right pop and print the top of the stack and then
+	// push the incoming operator. if the association is right to
+	// left, push the incoming operator
+	else if (precOf(equation[i]) == precOf(stack.peek())){
+		if (stack.peek() == '-' || stack.peek() == '/' ||
+		   stack.peek() == '+' || stack.peek() == '*'){
+		postfix = postfix + stack.pop();
+		}
+		else { 
+		  stack.push(equation[i]);
+		}
+	}
+	//seventh if the incoming symbol has a lower precedence than the 
+	//symbol  on top of the stack, pop the stack and print the 
+	//top operator. Then test the incoming operator against 
+	//the new top of the stack
+	else if(precOf(equation[i] == precOf(stack.peek())) {
+		while (stack.length() != 0) {
+			postfix = postfix + stack.pop();
+		}
+		i--;
+	}
+      }
 
 
